@@ -43,7 +43,7 @@ Développer une plateforme interne permettant la **génération automatisée de 
 
 ## 💡 Captures d'écran 
 
-![Captured'écran](./public/captureEcran.png)
+![Captured'écran](./public/captureEcran.jpg)
 
 ## 👨‍💻 Auteur
 
