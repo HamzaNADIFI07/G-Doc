@@ -53,7 +53,7 @@ Développer une plateforme interne permettant la **génération automatisée de 
 
 ![Captured'écran](./public/captureEcran.jpg)
 
-![Captured'écran](./public/captureEcran1.jng)
+![Captured'écran](./public/captureEcran1.png)
 ## 👨‍💻 Auteur
 
 Développé par **Hamza Nadifi**
