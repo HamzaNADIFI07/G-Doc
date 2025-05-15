@@ -3,46 +3,49 @@
     margin: 100px auto;
     padding: 20px;
     background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 0 50px 50px rgba(0, 0, 0, 0.2);
   }
   
-  h1 {
+h1 {
     text-align: center;
     color: #428C7E;
-  }
+    font-family: "Pacifico", cursive;
+}
   
-  .form {
+.form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-  }
+}
   
-  label {
+label {
     display: flex;
     flex-direction: column;
     font-weight: bold;
     color: #333;
-  }
+}
   
-  input {
+input {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
+    border: 2px solid black;
+    border-radius: 10px;
+}
   
-  button {
+button {
     padding: 12px;
     background-color: #428C7E;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+    font-size: 1em;
+    font-weight: bold;
+}
   
-  button:hover {
+button:hover {
     background-color: #366f64;
-  }
+}
   

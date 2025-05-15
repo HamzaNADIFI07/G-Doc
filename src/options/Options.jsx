@@ -14,18 +14,18 @@ function Options() {
             <h1>Type de document</h1>
             <div className={style.ligne1}>
                 <Link to="/AttestationDeTravail">
-                    <h2>Attestation de travail</h2>
+                    <h2>Attestation de Travail</h2>
                     <img src={attestationDeTravail} alt="Attestation De Travail" />
                 </Link>
 
                 <Link to="/AttestationDeSalaire">
-                    <h2>Attestation de salaire</h2>
+                    <h2>Attestation de Salaire</h2>
                     <img src={attestationDeSalaire} alt="Attestation De Salaire" />
                 </Link>
             </div>
             <div className={style.ligne2}>
                 <Link to="/AttestationDeTitularisation">
-                    <h2>Attestation de titularisation</h2>
+                    <h2>Attestation de Titularisation</h2>
                     <img src={attestationDeTitularisation} alt="Attestation De Titularisation" />
                 </Link>
 

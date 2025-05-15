@@ -29,6 +29,14 @@ Développer une plateforme interne permettant la **génération automatisée de 
   - Attestation de salaire
   - Attestation de titularisation
   - Domiciliation de travail
+- [x] **Formulaires de saisie personnalisés** pour chaque document
+- [x] **Génération automatique de documents PDF :**
+  - Intégration du logo officiel Laval Academy dans les PDF
+  - Texte personnalisé avec les informations du salarié
+  - Police **Courier** pour un rendu administratif
+  - Titre principal **gras et souligné**
+  - Texte aligné et marges définies
+  - Footer personnalisé avec date et signature
 - [x] **Responsive design** entièrement repensé :
   - Header responsive
   - Page Options responsive (mobile, tablette, desktop)
@@ -45,6 +53,7 @@ Développer une plateforme interne permettant la **génération automatisée de 
 
 ![Captured'écran](./public/captureEcran.jpg)
 
+![Captured'écran](./public/captureEcran1.jpg)
 ## 👨‍💻 Auteur
 
 Développé par **Hamza Nadifi**

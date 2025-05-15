@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import { jsPDF } from "jspdf";
-import style from './AttesdeTravailStyles.module.css'
+import style from './AttesDeSalaireStyles.module.css'
 
-import logoLaval from '../../assets/logoLaval.png'
-
-
-function AttesdeTravail() {
+function AttesDeSalaire() {
   const [formData, setFormData] = useState({
     nom: '',
     prenom: '',
-    cin: '',
     poste: '',
+    cin: '',
+    salaireMensuel: '',
     dateEmbauche: '',
     dateDelivrance: new Date().toISOString().split('T')[0],
   })
@@ -21,6 +19,7 @@ function AttesdeTravail() {
       [e.target.name]: e.target.value
     })
   }
+
   const formatDateFrench = (isoDate) => {
     const [year, month, day] = isoDate.split('-')
     return `${day}/${month}/${year}`
@@ -34,45 +33,23 @@ function AttesdeTravail() {
 
   const generatePDF = () => {
     const doc = new jsPDF()
-  
-    const img = new Image()
-    img.src = logoLaval
-    img.onload = function () {
-      doc.addImage(img, 'PNG', 10, 10, 40, 20)
-  
-      doc.setFont("courier" , "bold")
-      doc.setFontSize(20)
-      doc.text("ATTESTATION DE TRAVAIL", 105, 60, { align: "center" })
-      doc.setLineWidth(0.5)
-      doc.line(58, 62, 152, 62) 
-      doc.setFontSize(16)
-      doc.setFont("courier" , "normal")
-      const content = 
-        "Nous, soussignés, la société LAVAL ACADEMY, domiciliée au 42 Boulevard Citronnier, attestons par la présente que " +
-        formData.nom.toUpperCase() + " " + formData.prenom.toUpperCase() + ", titulaire de la carte d’identité nationale n° " +
-        formData.cin + ", exerce au sein de notre établissement en qualité de " + formData.poste + 
-        ", et ce, depuis le " + formatDateFrench(formData.dateEmbauche) + ".\n\n" +
-        "La présente attestation est délivrée à l’intéressé(e) à sa demande, pour servir et valoir ce que de droit.\n\n";
-  
-      const lines = doc.splitTextToSize(content, 170)
-      doc.text(lines, 20, 90)
-  
-      // 👉 ta ligne personnalisée : fait à + date + signature
-      const yPosition = 180 // ajuste si nécessaire
-      doc.text("Fait à : Casablanca", 20, yPosition)
-      doc.text("Le : " + formatDateFrench(formData.dateDelivrance), 100, yPosition)
-      doc.text("Signature", 170, yPosition)
-  
-      doc.save(`Attestation_Travail_${formData.nom}_${formData.prenom}.pdf`)
-    }
+
+    doc.setFontSize(16)
+    doc.text("Attestation de Travail", 20, 20)
+
+    doc.setFontSize(12)
+    doc.text(`Nom : ${formData.nom}`, 20, 40)
+    doc.text(`Prénom : ${formData.prenom}`, 20, 50)
+    doc.text(`Poste : ${formData.poste}`, 20, 60)
+    doc.text(`Date d’embauche : ${formData.dateEmbauche}`, 20, 70)
+    doc.text(`Date de délivrance : ${formatDateFrench(formData.dateDelivrance)}`, 20, 80)
+
+    doc.save(`Attestation_Travail_${formData.nom}_${formData.prenom}.pdf`)
   }
-  
-  
-  
 
   return (
     <div className={style.container}>
-      <h1>Attestation de Travail</h1>
+      <h1>Attestation de Salaire</h1>
       <form onSubmit={handleSubmit} className={style.form}>
         <label>Nom :
           <input type="text" name="nom" value={formData.nom} onChange={handleChange} required />
@@ -90,6 +67,10 @@ function AttesdeTravail() {
           <input type="text" name="poste" value={formData.poste} onChange={handleChange} required />
         </label>
 
+        <label>Salaire mensuel (en dirhams) :
+          <input type="number" name="salaireMensuel" value={formData.salaireMensuel} onChange={handleChange} required />
+        </label>
+
         <label>Date d’embauche :
           <input type="date" name="dateEmbauche" value={formData.dateEmbauche} onChange={handleChange} required />
         </label>
@@ -104,4 +85,4 @@ function AttesdeTravail() {
   )
 }
 
-export default AttesdeTravail
+export default AttesDeSalaire
