@@ -1,0 +1,100 @@
+.ligne1, .ligne2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.ligne1 {
+    margin: 50px 20px;
+    
+}
+
+/* TITRE PRINCIPAL */
+h1 {
+    color: rgb(66, 73, 207);
+    font-family: "Pacifico", cursive;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+/* SOUS-TITRES */
+h2 {
+    color: #636cff;
+    font-family: "Pacifico", cursive;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+/* IMAGES */
+.options img {
+    margin-right: 20px;
+    margin-left: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    transition: transform 0.2s ease;
+    box-shadow: 0 50px 50px rgba(0, 0, 0, 0.2);
+    width: 100px;
+}
+
+/* HOVER ANIMATION */
+.options img:hover, 
+.options h2:hover {
+    animation: icon-hover 0.7s ease;
+}
+
+@keyframes icon-hover {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* TABLETTE */
+@media screen and (min-width: 600px) {
+    h1 {
+        font-size: 3.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .options img {
+        width: 130px;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .ligne1 {
+        margin: 80px;
+    }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1024px) {
+    h1 {
+        font-size: 4.2em;
+    }
+
+    h2 {
+        font-size: 2.2em;
+    }
+
+    .options img {
+        width: 150px;
+        margin-left: 80px;
+        margin-right: 80px;
+    }
+
+    .ligne1 {
+        margin: 100px;
+    }
+}
