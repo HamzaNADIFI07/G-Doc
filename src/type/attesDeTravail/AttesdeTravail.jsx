@@ -13,6 +13,7 @@ function AttesdeTravail() {
     poste: '',
     dateEmbauche: '',
     dateDelivrance: new Date().toISOString().split('T')[0],
+    genre: '',
   })
 
   const handleChange = (e) => {
@@ -32,36 +33,39 @@ function AttesdeTravail() {
     generatePDF()
   }
 
+  const civilite = formData.genre === "Femme" ? "Madame" : "Monsieur"
+  const interesse = formData.genre === "Femme" ? "interessée" : "interessé"
+
   const generatePDF = () => {
     const doc = new jsPDF()
   
     const img = new Image()
     img.src = logoLaval
     img.onload = function () {
-      doc.addImage(img, 'PNG', 10, 10, 40, 20)
+      doc.addImage(img, 'PNG', 10, 10, 50, 20)
   
-      doc.setFont("courier" , "bold")
+      doc.setFont("Times" , "bolditalic")
       doc.setFontSize(20)
       doc.text("ATTESTATION DE TRAVAIL", 105, 60, { align: "center" })
       doc.setLineWidth(0.5)
-      doc.line(58, 62, 152, 62) 
+      doc.line(57, 62, 153, 62) 
       doc.setFontSize(16)
-      doc.setFont("courier" , "normal")
+      doc.setFont("Times" , "normal")
       const content = 
-        "Nous, soussignés, la société LAVAL ACADEMY, domiciliée au 42 Boulevard Citronnier, attestons par la présente que " +
-        formData.nom.toUpperCase() + " " + formData.prenom.toUpperCase() + ", titulaire de la carte d’identité nationale n° " +
-        formData.cin + ", exerce au sein de notre établissement en qualité de " + formData.poste + 
-        ", et ce, depuis le " + formatDateFrench(formData.dateEmbauche) + ".\n\n" +
-        "La présente attestation est délivrée à l’intéressé(e) à sa demande, pour servir et valoir ce que de droit.\n\n";
+        "Nous, soussignés, la société" + " LAVAL ACADEMY" + ", domiciliée au 42 Boulevard Citronnier, attestons par la présente que " +
+        civilite + " " + formData.nom.toUpperCase() + " " + formData.prenom.toUpperCase() + ", titulaire de la carte d’identité nationale n° " +
+        formData.cin + ", exerce au sein de notre établissement en qualité de: \n\n" +
+        "•  " + formData.poste + "\n\n" +
+        "Et ce, depuis le " + formatDateFrench(formData.dateEmbauche) + ".\n\n" +
+        "La présente attestation est délivrée à " + interesse + " à sa demande, pour servir et valoir ce que de droit.\n\n";
   
       const lines = doc.splitTextToSize(content, 170)
       doc.text(lines, 20, 90)
   
-      // 👉 ta ligne personnalisée : fait à + date + signature
-      const yPosition = 180 // ajuste si nécessaire
+      const yPosition = 180
       doc.text("Fait à : Casablanca", 20, yPosition)
-      doc.text("Le : " + formatDateFrench(formData.dateDelivrance), 100, yPosition)
-      doc.text("Signature", 170, yPosition)
+      doc.text("Le : " + formatDateFrench(formData.dateDelivrance), 150, yPosition)
+      doc.text("Signature", 150, 200)
   
       doc.save(`Attestation_Travail_${formData.nom}_${formData.prenom}.pdf`)
     }
@@ -74,6 +78,14 @@ function AttesdeTravail() {
     <div className={style.container}>
       <h1>Attestation de Travail</h1>
       <form onSubmit={handleSubmit} className={style.form}>
+        <label>
+          Civilité :
+            <select name="genre" value={formData.genre} onChange={handleChange} required>
+              <option value="">Sélectionner</option>
+              <option value="Homme">Homme</option>
+              <option value="Femme">Femme</option>
+            </select>
+        </label>
         <label>Nom :
           <input type="text" name="nom" value={formData.nom} onChange={handleChange} required />
         </label>
