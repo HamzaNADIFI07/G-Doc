@@ -25,6 +25,7 @@ label {
     flex-direction: column;
     font-weight: bold;
     color: #333;
+    margin-bottom: 20px;
 }
   
 input {

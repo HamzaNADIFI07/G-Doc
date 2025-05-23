@@ -16,7 +16,7 @@ function DomiciliationDeTravail() {
       codeBanque: '',
       codeVille: '',
       NCompte:'',
-      CléRib:'',
+      CleRib:'',
       dateDelivrance: new Date().toISOString().split('T')[0],
       genre: '',
     })
@@ -39,8 +39,7 @@ function DomiciliationDeTravail() {
     }
   
     const civilite = formData.genre === "Femme" ? "Madame" : "Monsieur"
-    const interesse = formData.genre === "Femme" ? "interessée" : "interessé"
-  
+
     const generatePDF = () => {
       const doc = new jsPDF()
     
@@ -51,28 +50,37 @@ function DomiciliationDeTravail() {
     
         doc.setFont("Times" , "bolditalic")
         doc.setFontSize(20)
-        doc.text("ATTESTATION DE TRAVAIL", 105, 60, { align: "center" })
+        doc.text("ENGAGEMENT DE DOMICILIATION IRRÉVOCABLE DE SALAIRE", 105, 60, { align: "center" })
         doc.setLineWidth(0.5)
         doc.line(57, 62, 153, 62) 
         doc.setFontSize(16)
         doc.setFont("Times" , "normal")
         const content = 
-          "Nous, soussignés, la société" + " LAVAL ACADEMY" + ", domiciliée au 42 Boulevard Citronnier, attestons par la présente que " +
+          "Nous, soussignés, la société LAVAL ACADEMY PRIVE représentée par Mr AHMITO MOHAMMED en sa qualité de GERANT habilité à l'effet de la présente attestations que " +
           civilite + " " + formData.nom.toUpperCase() + " " + formData.prenom.toUpperCase() + ", titulaire de la carte d’identité nationale n° " +
           formData.cin + ", exerce au sein de notre établissement en qualité de: \n\n" +
           "•  " + formData.poste + "\n\n" +
           "Et ce, depuis le " + formatDateFrench(formData.dateEmbauche) + ".\n\n" +
-          "La présente attestation est délivrée à " + interesse + " à sa demande, pour servir et valoir ce que de droit.\n\n";
-    
+          civilite + " " + formData.nom.toUpperCase() + " " + formData.prenom.toUpperCase() + "perçoit un salaire mensuel net de " + formData.salaireMensuel + " dirhams" +
+          " Suite à la demande de " + civilite + " " + formData.nom.toUpperCase() + " " + formData.prenom.toUpperCase() + ", employée auprès de notre établissement , nous nous engageons par la présente à virer irrévocablement et de manière permanente le salaire de " +
+          civilite + " " + formData.nom.toUpperCase() + " " + formData.prenom.toUpperCase() + " , ainsi le cas échéant en cas de départ, le solde de tout compte, les indemnités de quelque soit la nature sur son compte ouvert auprès de la " +
+          formData.banque + " sous les références:\n\n" + "RIB:\n\n";
+          
+          
         const lines = doc.splitTextToSize(content, 170)
         doc.text(lines, 20, 90)
+
+        doc.text("Code Banque : " + formData.codeBanque, 20, 150)
+        doc.text("Code Ville : " + formData.codeVille, 20, 160)
+        doc.text("Numéro de Compte : " + formData.NCompte, 20, 170)
+        doc.text("Clé RIB : " + formData.CleRib, 20, 180)
     
         const yPosition = 180
         doc.text("Fait à : Casablanca", 20, yPosition)
         doc.text("Le : " + formatDateFrench(formData.dateDelivrance), 150, yPosition)
         doc.text("Signature", 150, 200)
-    
-        doc.save(`Attestation_Travail_${formData.nom}_${formData.prenom}.pdf`)
+
+        doc.save(`DOMICILIATION_IRRÉVOCABLE_DE_SALAIRE_${formData.nom}_${formData.prenom}.pdf`)
       }
     }
     
@@ -130,7 +138,7 @@ function DomiciliationDeTravail() {
             </label>
 
             <label>Clé RIB :
-              <input type="text" name="CléRib" value={formData.CléRib} onChange={handleChange} required />    
+              <input type="text" name="CleRib" value={formData.CleRib} onChange={handleChange} required />    
             </label>
   
             <label>Date d’embauche :
