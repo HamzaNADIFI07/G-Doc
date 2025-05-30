@@ -41,11 +41,10 @@ Développer une plateforme interne permettant la **génération automatisée de 
   - Header responsive
   - Page Options responsive (mobile, tablette, desktop)
 - [x] **Animation au survol** sur les images et titres des documents
+- [x] **Déploiement de la version privée**: Une version privée a été développer avec le cachet de l'école placer en dessous du libellé `Signature`.
 
 ## 🚧 Prochaines étapes
 
-- [ ] Intégration des formulaires de saisie des informations salariées
-- [ ] Génération des fichiers PDF à partir des données
 - [ ] Intégration d’une base de données ou stockage local (à définir)
 - [ ] Tests utilisateurs & optimisation UX/UI
 
@@ -54,6 +53,10 @@ Développer une plateforme interne permettant la **génération automatisée de 
 ![Captured'écran](./public/captureEcran.jpg)
 
 ![Captured'écran](./public/captureEcran1.png)
+
+![Captured'écran](./public/captureEcran2.png)
+
+![Captured'écran](./public/captureEcran3.png)
 ## 👨‍💻 Auteur
 
 Développé par **Hamza Nadifi**
