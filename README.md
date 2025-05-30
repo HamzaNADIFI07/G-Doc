@@ -54,9 +54,9 @@ Développer une plateforme interne permettant la **génération automatisée de 
 
 ![Captured'écran](./public/captureEcran1.png)
 
-![Captured'écran](./public/captureEcran2.png)
+![Captured'écran](./public/CaptureEcran2.png)
 
-![Captured'écran](./public/captureEcran3.png)
+![Captured'écran](./public/CaptureEcran3.png)
 
 
 ## 👨‍💻 Auteur
