@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { jsPDF } from "jspdf";
-import style from './AttesdeTravailStyles.module.css'
+import style from './AttesDeTravailStyles.module.css'
 
 import logoLaval from '../../assets/logoLaval.png'
 

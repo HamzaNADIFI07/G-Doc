@@ -3,7 +3,7 @@ import style from './HeaderStyles.module.css'
 import { Link } from 'react-router-dom'
 
 import logoLaval from '../assets/logoLaval.png'
-import logoGdoc from '../assets/logo1.png'
+import logoGdoc from '../assets/logo.png'
 
 function Header() {
   return (
